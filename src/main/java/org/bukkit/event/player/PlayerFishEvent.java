@@ -15,8 +15,14 @@ public class PlayerFishEvent extends PlayerEvent implements Cancellable {
     private boolean cancel = false;
     private int exp;
     private final State state;
-    private Fish hookEntity;
+    private final Fish hookEntity;
 
+    
+    public PlayerFishEvent(final Player player, final Entity entity, final State state) {
+    	this(player, entity, null, state);
+    }
+    
+    
     public PlayerFishEvent(final Player player, final Entity entity, final Fish hookEntity, final State state) {
         super(player);
         this.entity = entity;
@@ -34,7 +40,7 @@ public class PlayerFishEvent extends PlayerEvent implements Cancellable {
     }
 
     /**
-     * Gets the Fish entity.
+     * Gets the fishing hook.
      * @return Fish the entity representing the fishing hook/bobber.
      */
     public Fish getHook() {
