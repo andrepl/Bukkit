@@ -17,11 +17,10 @@ public class PlayerFishEvent extends PlayerEvent implements Cancellable {
     private final State state;
     private final Fish hookEntity;
 
-
+    @Deprecated
     public PlayerFishEvent(final Player player, final Entity entity, final State state) {
     	this(player, entity, null, state);
     }
-
 
     public PlayerFishEvent(final Player player, final Entity entity, final Fish hookEntity, final State state) {
         super(player);
