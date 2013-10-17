@@ -187,7 +187,9 @@ public interface Player extends HumanEntity, Conversable, CommandSender, Offline
      * @param loc The location of a note block.
      * @param instrument The instrument ID.
      * @param note The note ID.
+     * @deprecated Magic value
      */
+    @Deprecated
     public void playNote(Location loc, byte instrument, byte note);
 
     /**
@@ -215,12 +217,30 @@ public interface Player extends HumanEntity, Conversable, CommandSender, Offline
     public void playSound(Location location, Sound sound, float volume, float pitch);
 
     /**
+     * Play a sound for a player at the location.
+     * <p>
+     * This function will fail silently if Location or Sound are null. No
+     * sound will be heard by the player if their client does not have the
+     * respective sound for the value passed.
+     *
+     * @param location the location to play the sound
+     * @param sound the internal sound name to play
+     * @param volume the volume of the sound
+     * @param pitch the pitch of the sound
+     * @deprecated Magic value
+     */
+    @Deprecated
+    public void playSound(Location location, String sound, float volume, float pitch);
+
+    /**
      * Plays an effect to just this player.
      *
      * @param loc the location to play the effect at
      * @param effect the {@link Effect}
      * @param data a data bit needed for some effects
+     * @deprecated Magic value
      */
+    @Deprecated
     public void playEffect(Location loc, Effect effect, int data);
 
     /**
@@ -239,7 +259,9 @@ public interface Player extends HumanEntity, Conversable, CommandSender, Offline
      * @param loc The location of the changed block
      * @param material The new block
      * @param data The block data
+     * @deprecated Magic value
      */
+    @Deprecated
     public void sendBlockChange(Location loc, Material material, byte data);
 
     /**
@@ -257,7 +279,9 @@ public interface Player extends HumanEntity, Conversable, CommandSender, Offline
      * @param sz The z size of the cuboid
      * @param data The data to be sent
      * @return true if the chunk change packet was sent
+     * @deprecated Magic value
      */
+    @Deprecated
     public boolean sendChunkChange(Location loc, int sx, int sy, int sz, byte[] data);
 
     /**
@@ -267,7 +291,9 @@ public interface Player extends HumanEntity, Conversable, CommandSender, Offline
      * @param loc The location of the changed block
      * @param material The new block ID
      * @param data The block data
+     * @deprecated Magic value
      */
+    @Deprecated
     public void sendBlockChange(Location loc, int material, byte data);
 
     /**
@@ -582,6 +608,7 @@ public interface Player extends HumanEntity, Conversable, CommandSender, Offline
 
     /**
      * Sets the speed at which a client will fly. Negative values indicate reverse directions.
+     *
      * @param value The new speed, from -1 to 1.
      * @throws IllegalArgumentException If new speed is less than -1 or greater than 1
      */
@@ -589,6 +616,7 @@ public interface Player extends HumanEntity, Conversable, CommandSender, Offline
 
     /**
      * Sets the speed at which a client will walk. Negative values indicate reverse directions.
+     *
      * @param value The new speed, from -1 to 1.
      * @throws IllegalArgumentException If new speed is less than -1 or greater than 1
      */
@@ -596,12 +624,14 @@ public interface Player extends HumanEntity, Conversable, CommandSender, Offline
 
     /**
      * Gets the current allowed speed that a client can fly.
+     *
      * @return The current allowed speed, from -1 to 1
      */
     public float getFlySpeed();
 
     /**
      * Gets the current allowed speed that a client can walk.
+     *
      * @return The current allowed speed, from -1 to 1
      */
     public float getWalkSpeed();
